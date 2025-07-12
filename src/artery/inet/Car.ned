@@ -7,6 +7,8 @@ import inet.node.inet.INetworkNode;
 import inet.linklayer.contract.IWirelessNic;
 import inet.mobility.contract.IMobility;
 import inet.networklayer.common.InterfaceTable;
+import inet.common.packet.PcapRecorder;
+
 
 // NOTE:
 // Car does not inherit from PlainVehicle on purpose to avoid a "use-after-free" bug.
@@ -76,6 +78,13 @@ module Car like INetworkNode
                 @display("p=250,100");
                 mobilityModule = ".mobility";
         }
+
+        recorder: PcapRecorder{
+            parameters:
+                @pcapFile("./pcap");
+                @alwaysFlush(true);
+        }
+
 
     connections:
         for i=0..sizeof(radioIn)-1 {
