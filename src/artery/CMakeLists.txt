@@ -46,6 +46,7 @@ add_library(core SHARED
     networking/DccEntityBase.cc
     networking/FsmDccEntity.cc
     networking/GeoNetPacket.cc
+    networking/GeoNetPacketSerializer.cc
     networking/LimericDccEntity.cc
     networking/NoRateControlDccEntity.cc
     networking/PersonPositionProvider.cc
